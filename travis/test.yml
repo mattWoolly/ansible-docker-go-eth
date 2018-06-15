@@ -9,3 +9,5 @@
        name: goeth 
        state: started
 
+  roles:
+   - goeth_role
