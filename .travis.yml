@@ -11,8 +11,6 @@ services:
 before_install:
   - 'sudo docker pull ${distribution}:${version}'
   - 'sudo docker build --no-cache --rm --file=travis/Dockerfile.${distribution}-${version} --tag=${distribution}-${version}:ansible travis'
-  - sudo apt-get update -qq
-  - sudo apt-get install -y -o Dpkg::Options::="--force-confnew" docker-engine
 script:
   - container_id=$(mktemp)
   - 'sudo docker run --detach --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro --volume="${PWD}":/etc/ansible/roles/goeth_role:ro ${distribution}-${version}:ansible > "${container_id}"'
