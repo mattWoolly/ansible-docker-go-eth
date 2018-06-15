@@ -21,6 +21,4 @@ RUN yum -y install epel-release
 RUN yum -y install git ansible python python-pip docker
 RUN pip install docker-py
 RUN ansible --version
-RUN systemctl start docker
-RUN systemctl enable docker
 RUN echo -e '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts
