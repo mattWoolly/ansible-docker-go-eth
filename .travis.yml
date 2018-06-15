@@ -9,7 +9,6 @@ services:
   - docker
 
 before_install:
-  - deactivate 
   - 'sudo docker pull ${distribution}:${version}'
   - 'sudo docker build --no-cache --rm --file=travis/Dockerfile.${distribution}-${version} --tag=${distribution}-${version}:ansible travis'
   - sudo apt-get update -qq
