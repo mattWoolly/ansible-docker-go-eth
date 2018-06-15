@@ -2,20 +2,12 @@
 - hosts: all
 
   tasks:
-   # Start Docker Service
-   - name: Start Docker service
-     service: name=docker state=started
-     become: yes
-     become_method: sudo
-   - name: Boot Docker on startup
-     service: name=docker enabled=yes
-     become: yes
-     become_method: sudo
    - name: Create a goeth container
      docker_container:
        image: ethereum/client-go
        name: goeth 
        state: started
+       privileged: true
 
   roles:
    - goeth_role
