@@ -2,6 +2,11 @@
 - hosts: all
 
   tasks:
+   - name: Start Docker service
+     service:
+       name: docker
+       state: started        
+
    - name: Wait for Docker service to start    
      action: raw docker version
      register: docker_version
