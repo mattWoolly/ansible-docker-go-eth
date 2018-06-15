@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+   - name: Create a goeth container
+     docker_container:
+       image: ethereum/client-go
+       name: goeth 
+       state: started
+
