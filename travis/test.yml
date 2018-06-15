@@ -9,5 +9,5 @@
        state: started
        privileged: true
        devices: /var/run/docker.sock:/var/run/docker.sock
-   roles:
+  roles:
    - goeth_role
