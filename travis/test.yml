@@ -8,6 +8,6 @@
        name: goeth 
        state: started
        privileged: true
-
-  roles:
+       devices: /var/run/docker.sock:/var/run/docker.sock
+   roles:
    - goeth_role
