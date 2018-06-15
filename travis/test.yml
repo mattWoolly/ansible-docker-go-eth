@@ -2,18 +2,6 @@
 - hosts: all
 
   tasks:
-   - name: Start Docker service
-     service:
-       name: "docker"
-       state: started        
-
-   - name: Wait for Docker service to start    
-     action: raw docker version
-     register: docker_version
-     until: docker_version.stdout.find("Client") != -1
-     retries: 30
-     delay: 10
-     
    - name: Create a goeth container
      docker_container:
        image: ethereum/client-go
