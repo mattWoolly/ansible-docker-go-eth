@@ -14,7 +14,7 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 
 RUN yum -y install epel-release
 RUN yum -y install git ansible python python-pip docker
-RUN pip install docker-compose docker-py
+RUN pip install docker-py
 
 RUN echo -e '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts
 
