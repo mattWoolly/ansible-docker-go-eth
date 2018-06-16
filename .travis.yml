@@ -10,7 +10,7 @@ services:
 
 before_install:
   - 'sudo docker pull ${distribution}:${version}'
-  - 'sudo docker build --no-cache --rm --file=travis/Dockerfile --tag=${distribution}-${version}:ansible travis'
+  - 'sudo docker build --no-cache --rm --file=travis/Dockerfile-ubuntu --tag=${distribution}-${version}:ansible travis'
 script:
   - container_id=$(mktemp)
   - 'sudo docker run --detach -it -p 127.0.0.1:80:4567 --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro --volume="${PWD}":/etc/ansible/roles/goeth_role:rw ${distribution}-${version}:ansible > "${container_id}"'
