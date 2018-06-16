@@ -6,9 +6,10 @@ RUN apt-add-repository -y ppa:ansible/ansible && apt-get update && apt-get insta
     git \
     ansible \
     python-pip \
+    docker-engine \
  && rm -rf /var/lib/apt/lists/*
 
 RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
-RUN pip install docker-py
+RUN pip install docker-compose
 
 ENTRYPOINT ["/sbin/init"]
