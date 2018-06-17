@@ -11,6 +11,7 @@
        - unzip
        - tar
        - sudo
+       - docker  
    - name: Create a goeth container
      docker_container:
        image: ethereum/client-go
