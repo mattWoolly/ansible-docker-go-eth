@@ -12,6 +12,10 @@
        - tar
        - sudo
        - docker  
+   - name: Start Docker Service
+     service:
+      name: docker
+      state: started
    - name: Create a goeth container
      docker_container:
        image: ethereum/client-go
