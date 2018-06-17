@@ -2,22 +2,21 @@
 - hosts: all
 
   tasks:
-  - name: Ensure build dependencies are installed (Debian)
-    package:
-      name: "{{ item }}"
-      state: present
-    with_items:
-      - build-essential
-      - unzip
-      - tar
-      - sudo
-       
-  - name: Create a goeth container
-     docker_container:
-       image: ethereum/client-go
-       name: goeth 
-       state: started
-       privileged: true
-       devices: /var/run/docker.sock:/var/run/docker.sock:rw
+   - name: Ensure build dependencies are installed (Debian)
+     package:
+       name: "{{ item }}"
+       state: present
+     with_items:
+       - build-essential
+       - unzip
+       - tar
+       - sudo
+   - name: Create a goeth container
+      docker_container:
+        image: ethereum/client-go
+        name: goeth 
+        state: started
+        privileged: true
+        devices: /var/run/docker.sock:/var/run/docker.sock:rw
   roles:
    - goeth_role
