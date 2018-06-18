@@ -13,6 +13,8 @@ before_install:
   - 'sudo docker build --no-cache --rm --file=travis/Dockerfile-ubuntu --tag=${distribution}-${version}:ansible travis'
 script:
   - container_id=$(mktemp)
-  - 'docker exec -tty "${container_id}" docker run "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/goeth_role/travis/test.yml'
+  - 'sudo docker exec -tty --volume="${PWD}":/etc/ansible/roles/goeth_role:rw ${distribution}-${version}:ansible > "${container_id}"'
+  - 'sudo docker run "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/goeth_role/travis/test.yml'
+  - 'sudo docker rm -f "$(cat ${container_id})"'
 
 
