@@ -9,10 +9,10 @@ services:
   - docker
 
 before_install:
-  - 'sudo docker pull ${distribution}:${version}'
-  - 'sudo docker build --no-cache --rm --file=travis/Dockerfile-ubuntu --tag=${distribution}-${version}:ansible travis'
+  - sudo apt-get update -qq
 
+install:
+  - pip install ansible
+  - pip install ansible-lint
 script:
-  - container_id=$(mktemp)
-  - 'sudo docker run --detach -it --privileged -v /var/run/docker.sock:/var/run/docker.sock --volume="${PWD}":/etc/ansible/roles/goeth_role:rw ${distribution}-${version}:ansible > "${container_id}"'
-  - 'sudo docker exec "$(cat ${container_id})" ansible-playbook /etc/ansible/roles/goeth_role/main.yml'
+  - ansible-playbook main.yml'
