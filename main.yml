@@ -8,5 +8,3 @@
        name: goeth 
        state: started
        privileged: true
-  roles:
-   - goeth_role
