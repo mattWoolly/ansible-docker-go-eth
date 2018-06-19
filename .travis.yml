@@ -12,7 +12,7 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  - pip install ansible
-  - pip install ansible-lint
+  - sudo pip install ansible
+  - sudo pip install ansible-lint
 script:
   - ansible-playbook main.yml'
