@@ -1,2 +1,2 @@
 #!/bin/bash
-pgrep geth && echo Running
+pgrep geth && echo 0
