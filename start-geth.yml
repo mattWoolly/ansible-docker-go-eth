@@ -1,0 +1,5 @@
+---
+- name: Start geth if not running
+  service:
+    name: geth
+    state: started
