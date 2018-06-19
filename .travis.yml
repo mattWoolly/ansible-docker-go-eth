@@ -17,3 +17,4 @@ install:
   - sudo pip install docker-compose
 script:
   - ansible-playbook main.yml
+  - pgrep 'geth' && (echo "Running" && exit 0) || (echo "Not Running" && exit 1)
