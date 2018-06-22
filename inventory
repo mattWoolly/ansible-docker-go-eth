@@ -1,3 +1,4 @@
-localhost ansible_connection=local 
+[local]
+127.0.0.1 ansible_connection=local
 [ec2]
 ansible-docker-test	ansible_connection=ssh	ansible_user=ec2-user
