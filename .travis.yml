@@ -1,25 +1,21 @@
----
 sudo: required
-
 env:
-  - distribution: ubuntu 
-    version: xenial 
-
+- distribution: ubuntu
+  version: xenial
 services:
-  - docker
-
+- docker
 before_install:
-  - sudo apt-get update -qq
-
+- openssl aes-256-cbc -K $encrypted_0cc9b1ee0380_key -iv $encrypted_0cc9b1ee0380_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
+- sudo apt-get update -qq
 install:
-  - sudo pip install ansible
-  - sudo pip install ansible-lint
-  - sudo pip install docker-compose
-
+- sudo pip install ansible
+- sudo pip install ansible-lint
+- sudo pip install docker-compose
 script:
-  - ansible-playbook main.yml
-  - pgrep 'geth' && (echo "Geth Running" && exit 0) || (echo "Geth Not Running" && exit 1)
-
+- ansible-playbook main.yml
+- pgrep 'geth' && (echo "Geth Running" && exit 0) || (echo "Geth Not Running" && exit
+  1)
 deploy:
   provider: script
   skip_cleanup: true

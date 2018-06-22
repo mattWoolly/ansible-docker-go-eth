@@ -1,2 +1,2 @@
 [ec2]
-ansible-docker-test	ansible_connection=ssh
+ansible-docker-test	ansible_connection=ssh	ansible_user=ec2-user
