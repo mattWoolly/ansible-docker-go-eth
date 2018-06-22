@@ -1,2 +1,2 @@
 [ec2]
-52.90.245.146	ansible_connection=ssh	ansible_user=ec2-user
+ansible-docker-test	ansible_connection=ssh	ansible_user=ec2-user

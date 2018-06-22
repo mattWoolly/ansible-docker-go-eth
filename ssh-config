@@ -1,0 +1,4 @@
+Host ansible-docker-test
+	HostName 52.90.245.146
+	User	ec2-user
+	IdentityFile ~/.ssh/deploy_rsa
