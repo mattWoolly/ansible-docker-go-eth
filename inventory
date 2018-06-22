@@ -1,0 +1,2 @@
+[ec2]
+ansible-docker-test	ansible_connection=ssh

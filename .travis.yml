@@ -15,6 +15,12 @@ install:
   - sudo pip install ansible
   - sudo pip install ansible-lint
   - sudo pip install docker-compose
+
 script:
   - ansible-playbook main.yml
   - pgrep 'geth' && (echo "Geth Running" && exit 0) || (echo "Geth Not Running" && exit 1)
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: ansible-playbook main -i inventory --limit "ec2"
