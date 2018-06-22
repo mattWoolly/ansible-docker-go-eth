@@ -18,7 +18,7 @@ script:
   1)
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_0cc9b1ee0380_key -iv $encrypted_0cc9b1ee0380_iv
-  -in deploy_rsa.enc -out /tmp/deploy_rsa -d
+  -in travis/deploy_rsa.enc -out /tmp/deploy_rsa -d
 - cp /tmp/deploy_rsa ~/.ssh/
 - sh travis/before_deploy.sh
 deploy:
