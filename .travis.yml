@@ -13,7 +13,7 @@ install:
 - sudo pip install ansible-lint
 - sudo pip install docker-compose
 script:
-- ansible-playbook main.yml -i inventory
+- ansible-playbook main.yml -i inventory --limit "localhost"
 - pgrep 'geth' && (echo "Geth Running" && exit 0) || (echo "Geth Not Running" && exit
   1)
 before_deploy:
@@ -23,6 +23,6 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: ansible-playbook main.yml -i inventory 
+  script: ansible-playbook main.yml -i inventory --limit "ec2" 
   on:
     branch: test-deploy
