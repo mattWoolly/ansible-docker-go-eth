@@ -25,6 +25,6 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: ansible-playbook main.yml -i inventory --limit "ec2"
+  script: ansible-playbook main.yml -i inventory 
   on:
     branch: test-deploy
